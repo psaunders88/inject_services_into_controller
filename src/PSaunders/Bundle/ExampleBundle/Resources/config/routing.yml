@@ -1,0 +1,3 @@
+p_saunders_example_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: p_saunders_example.controller.default:indexAction }

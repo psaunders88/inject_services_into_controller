@@ -1,0 +1,4 @@
+p_saunders_example:
+    resource: "@PSaundersExampleBundle/Resources/config/routing.yml"
+    prefix:   /
+
