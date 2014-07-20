@@ -1,1 +1,9 @@
-Hello {{ name }}!
+Hello!
+
+These are the users on the site: <br/>
+
+<ul>
+{% for user in users %}
+    <li>{{ user.name }}</li>
+{% endfor %}
+</ul>

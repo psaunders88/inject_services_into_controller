@@ -1,8 +1,6 @@
 parameters:
-    p_saunders_example.controller.default: PSaunders\Bundle\ExampleBundle\Controller\DefaultController
+    p_saunders_example.repository.user_repository: PSaunders\Bundle\ExampleBundle\Repository\UserRepository
 
 services:
-    p_saunders_example.controller.default:
-        class: %p_saunders_example.controller.default%
-        arguments:
-            - @templating
+    p_saunders_example.repository.user_repository:
+        class: %p_saunders_example.repository.user_repository%

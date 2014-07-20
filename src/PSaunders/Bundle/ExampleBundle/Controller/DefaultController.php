@@ -5,6 +5,7 @@ namespace PSaunders\Bundle\ExampleBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Templating\EngineInterface;
+use PSaunders\Bundle\ExampleBundle\Repository\UserRepository;
 
 class DefaultController extends Controller
 {
@@ -16,28 +17,36 @@ class DefaultController extends Controller
     protected $templating;
     
     /**
+     * User repository
+     * 
+     * @var UserRepository
+     */
+    protected $userRepository;
+    
+    /**
      * Default controller controller
      * 
      * @param EngineInterface $templating
      */
-    public function __construct(EngineInterface $templating)
-    {
+    public function __construct(
+        EngineInterface $templating,
+        UserRepository $userRepository
+    ) {
         $this->templating = $templating;
+        $this->userRepository = $userRepository;
     }
     
     /**
      * Index action
-     * 
-     * @param string $name The string you wish to display on the screen
-     * 
+     *  
      * @return Response
      */
-    public function indexAction($name)
+    public function indexAction()
     {
         return $this->templating->renderResponse(
             'PSaundersExampleBundle:Default:index.html.twig',
             [
-                'name' => $name
+                'users' => $this->userRepository->find()
             ]
         );
     }
