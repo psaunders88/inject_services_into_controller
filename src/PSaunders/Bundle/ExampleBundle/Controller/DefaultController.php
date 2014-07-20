@@ -24,9 +24,10 @@ class DefaultController extends Controller
     protected $userRepository;
     
     /**
-     * Default controller controller
+     * Default controller constructor
      * 
      * @param EngineInterface $templating
+     * @param UserRepository  $userRepository
      */
     public function __construct(
         EngineInterface $templating,
